@@ -5,12 +5,8 @@ function setPaciente(event) {
 
 	var form = document.querySelector("#form-add");
 
-	var nome = form.nome.value;
-	var peso = form.peso.value;
-	var altura = form.altura.value;
-	var gordura = form.gordura.value;
-	var imc = calculaImc(peso,altura);
-	
+	var paciente = obtemInfo(form);
+	console.log(paciente);
 
 	var pacienteTr = document.createElement("tr");
 	var nomeTd = document.createElement("td");
@@ -35,4 +31,15 @@ function setPaciente(event) {
 	tabela.appendChild(pacienteTr);
 
 	console.log(form);
+}
+
+function obtemInfo(form) {
+     paciente = {
+     	nome: form.nome.value,
+     	peso: form.peso.value,
+     	altura: form.altura.value,
+     	gordura: form.gordura.value,
+     	imc: calculaImc(form.peso.value, form.altura.value)
+     }
+     return paciente;
 }
