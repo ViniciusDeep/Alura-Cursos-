@@ -6,15 +6,19 @@ function setPaciente(event) {
 	var form = document.querySelector("#form-add");
 
 	var paciente = obtemInfo(form);
+	
 	var pacienteTr = montaTr(paciente);
 
 	console.log(paciente);
 
-
+	if(!validaPaciente(paciente)) {
+		console.log("Paciente Inválido");
+		return;
+	}
 
 	var tabela = document.querySelector("#tabela-pacientes");
 	tabela.appendChild(pacienteTr);
-
+	form.reset();
 	console.log(form);
 }
 
@@ -46,4 +50,12 @@ function montaTd(dado, classe) {
 	td.textContent = dado;
 	td.classList.add(classe);
 	return td;
+}
+
+function validaPaciente(paciente) {
+	if(validaPeso(paciente.peso)) {
+		return false;
+	} else {
+		return true;
+	}
 }
