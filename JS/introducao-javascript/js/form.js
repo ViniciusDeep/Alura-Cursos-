@@ -11,8 +11,11 @@ function setPaciente(event) {
 
 	console.log(paciente);
 
-	if(!validaPaciente(paciente)) {
-		console.log("Paciente Inválido");
+	var erro = validaPaciente(paciente);
+
+	if(erro.length > 0) {
+		var mensagemErro = document.querySelector("#messageErro");
+		mensagemErro.textContent = erro;
 		return;
 	}
 
@@ -53,9 +56,18 @@ function montaTd(dado, classe) {
 }
 
 function validaPaciente(paciente) {
+
+	var erros = [];
+
 	if(validaPeso(paciente.peso)) {
-		return false;
-	} else {
-		return true;
+		 erros.push("Peso inválido");
+	} 
+
+
+	if(validaAltura(paciente.altura)) {
+		erros.push("Altura Inválida");
 	}
+
+
+	return erros;
 }
