@@ -6,5 +6,5 @@ text.addEventListener("input", function(){
       var paciente = pacientes[i];
       var nomeTd = paciente.querySelector("info-nome");
       var nome = nomeTd.textContent;
-    }
+    }//teste
 });
