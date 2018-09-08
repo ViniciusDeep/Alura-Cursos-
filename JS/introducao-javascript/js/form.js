@@ -14,15 +14,31 @@ function setPaciente(event) {
 	var erro = validaPaciente(paciente);
 
 	if(erro.length > 0) {
-		var mensagemErro = document.querySelector("#messageErro");
-		mensagemErro.textContent = erro;
+		exibeMensagensDeErro(erro);
 		return;
 	}
+
+
 
 	var tabela = document.querySelector("#tabela-pacientes");
 	tabela.appendChild(pacienteTr);
 	form.reset();
+	var mensagemErro = document.querySelector("#mensagens-erro");
+	mensagemErro.innerHTML = "";
+
+
 	console.log(form);
+}
+
+
+function exibeMensagensDeErro(erros){
+    var ul = document.querySelector("#mensagens-erro");
+   	ul.innerHTML = "";
+    erros.forEach(function(erro){
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    });
 }
 
 function obtemInfo(form) {
@@ -66,6 +82,22 @@ function validaPaciente(paciente) {
 
 	if(validaAltura(paciente.altura)) {
 		erros.push("Altura Inválida");
+	}
+
+	if(paciente.nome.length == 0) {
+		erros.push("O campo nome está vazio");
+	}
+
+	if(paciente.gordura.length == 0) {
+		erros.push("O campo gordura está vázio");
+	}
+
+	if(paciente.peso.length == 0) {
+		erros.push("O campo peso está vazio");
+	}
+
+	if(paciente.altura.length == 0) {
+		erros.push("O campo altura está vázio");
 	}
 
 
