@@ -65,7 +65,17 @@
     <script>
         var buss = new Negociacao(new Date(), 3,1000);
         buss._quantidade = 100;
+
+        var amanha = new Date();
+        amanha.setDate(17);
+        buss.data.setDate(amanha.getDate());
+
+        console.log(amanha);
+        console.log(buss.data);
+
         console.log(buss.quantidade);
+
+
 
 
     </script>
