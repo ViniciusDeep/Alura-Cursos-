@@ -60,6 +60,42 @@
     </table>
 
     <script src="js/index.js">  </script>
+    <script src="app/model/Negociacao.js">  </script>
+
+    <script>
+      var button = document.querySelector(".form");
+
+      button.addEventListener("submit", function(event){
+
+
+        event.preventDefault();
+        var tr = document.createElement("tr");
+        var campos = [
+            document.querySelector("#data"),
+            document.querySelector("#quantidade"),
+            document.querySelector("#valor")
+          ];
+
+
+
+        var buss = new Negociacao(new Date,campos[1].value, campos[2].value);
+        alert(buss.valor);
+
+        campos.forEach(function(campos){
+            var td = document.createElement("td");
+            td.textContent = buss.value;
+            tr.appendChild(td);
+
+        });
+      });
+
+
+
+
+
+
+    </script>
+
 
 </body>
 </html>

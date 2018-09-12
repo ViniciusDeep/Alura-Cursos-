@@ -4,7 +4,6 @@ var campos = [
     document.querySelector("#valor")
   ];
 
-
 var tBody = document.querySelector("table tbody");
 var button = document.querySelector(".form");
 button.addEventListener("submit", function(event) {
