@@ -1,4 +1,4 @@
-var campos = [
+/*var campos = [
     document.querySelector("#data"),
     document.querySelector("#quantidade"),
     document.querySelector("#valor")
@@ -25,3 +25,4 @@ button.addEventListener("submit", function(event) {
   campos[1].value = "";
   campos[2].value = "";
 });
+*/
