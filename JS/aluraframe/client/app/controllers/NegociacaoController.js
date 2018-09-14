@@ -3,9 +3,10 @@ class NegociacaoController {
 
     adciona(event) {
       event.preventDefault();
-      let data = document.querySelector("#data");
-      let quantidade = document.querySelector("#quantidade");
-      let valor = document.querySelector("#valor");
+      let $ = document.querySelector.bind(document);
+      let data = $("#data");
+      let quantidade = $("#quantidade");
+      let valor = $("#valor");
 
       console.log(valor.value);
       console.log(quantidade.value);
